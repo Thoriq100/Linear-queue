@@ -1,0 +1,100 @@
+#include <iostream>
+#include <conio.h>
+#include <stdio.h>
+#include <string.h>
+
+using namespace std;
+struct data{
+	int kodebk;
+	string nama;
+	string alamat;
+	data *next;
+};
+data *f,*r,*baru,*bantu,*b1,*b2,*hapus;
+
+
+main(){
+	int pil,ul,c=0;
+	char y;
+	
+	
+	do{
+		cout<<"1.Push"<<endl;
+		cout<<"2.Pop"<<endl;
+		cout<<"3.view"<<endl;
+		cout<<"Pilih :";
+		cin>>pil;
+		switch(pil){
+			case 1:
+	
+				baru=new data;
+				cout<<"Kode buku   : ";
+				cin>>baru->kodebk;
+				cout<<"Nama        : ";
+				cin>>baru->nama;
+				cout<<"alamat      : ";
+				cin>>baru->alamat;
+				baru->next=NULL;
+				system("cls");
+
+		if(f==NULL){
+				f=baru;
+				f->next=NULL;
+			}else{
+			bantu=f;
+			while(bantu->next!=NULL){
+			bantu=bantu->next;
+    		}
+			bantu->next=baru;
+			}
+
+				
+		break;
+				
+				case 2:
+
+			if (f!=NULL){
+				if(f->next!=NULL){
+				hapus=f;
+				f=f->next;
+				delete hapus;
+				system("cls");
+				}else {
+				f=NULL;
+				}
+			}
+                           
+					
+				
+				break;
+				case 3:
+					system("cls");
+					r=f;
+                   bantu=f;
+                  
+                      while (bantu!=NULL){
+                      	
+                        	cout<<"Kode Buku :"<<bantu->kodebk<<endl;
+                            cout<<"Nama      :"<<bantu->nama<<endl;
+                            cout<<"Alamat    :"<<bantu->alamat;
+                            bantu=bantu->next;
+                
+                            
+                            cout<<endl;
+                            }
+                            break;
+				
+			
+			
+			
+			
+			
+			
+			
+		}
+		
+		
+	}while(pil<4);
+}
+	
+	
