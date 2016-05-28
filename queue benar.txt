@@ -1,0 +1,107 @@
+#include <iostream>
+#include <stdlib.h>
+
+using namespace std;
+
+struct queue
+{
+    char nama[20];
+    char alamat[20];
+    char buku[20];
+    int kodebk;
+};
+
+main()
+{
+    queue perpus[50];
+    int f=0,r=-1,a,pilih,n;
+	cout<<"Batas data :"<<endl;
+	cin>>n;
+    do {
+      
+        
+        cout<<"1.Enqueue"<<endl;
+		cout<<"2. Dequeue"<<endl;
+		cout<<"3. View"<<endl;
+		cout<<"4. Exit"<<endl;
+        cout<<"pilihan : ";
+        cin>>pilih;
+
+    system ("cls");
+    switch (pilih) {
+
+    case 1 :
+        do {
+            if (r<n-1){
+                r=r+1;
+                cout<<"Masukkan perpus : "; cin>>perpus[r].nama;
+                cout<<"alamat perpus : "; cin>>perpus[r].alamat;
+                cout<<"Merk perpus : "; cin>>perpus[r].buku;
+                cout<<"Banyak perpus : "; cin>>perpus[r].kodebk;
+            } else {
+                cout<<"Antrian Penuh\n";
+            }
+            cout<<"\ninputkan data lagi ketik [1] jika tidak [0] : "; cin>>pilih; cout<<endl;
+        }while(pilih==1);
+
+    break;
+
+    case 2:
+        if(f<r+1)
+        {
+            cout<<"perpus : "<<perpus[f].nama<<endl;
+            cout<<"alamat perpus : "<<perpus[f].alamat<<endl;
+            cout<<"Merk perpus : "<<perpus[f].buku<<endl;
+            cout<<"Jumlah perpus : "<<perpus[f].kodebk<<endl;
+            f=f+1;
+            if(f==r+1&&r==n-1)
+            {
+                r=-1;
+                f=0;
+            }
+        }
+        else
+        {
+            cout<<"Antrian Kosong"<<endl<<endl;
+        }
+
+    break;
+
+    case 3:
+        if(f>r)
+            {
+                cout<<"Antrian Kosong"<<endl<<endl;
+            }
+            else
+            {
+                cout<<"Data Dalam Queue"<<endl;
+                for(a=f;a<=r;a++)
+                {
+                    cout<<perpus[a].nama<<endl;
+                    cout<<perpus[a].alamat<<endl;
+                    cout<<perpus[a].buku<<endl;
+                    cout<<perpus[a].kodebk<<endl;
+                    cout<<"========================";
+                    cout<<endl;
+                }
+               
+                cout<<endl;
+            }
+            break;
+        default:
+            cout<<"Pilihan Tidak Ada Di Menu"<<endl<<endl;
+
+    break;
+
+    case 4:{return 4;};
+
+    break;
+
+    }
+    cout<<"\nKetik angka semperpus untuk kembali ke MENU : ";
+    cin>>pilih;
+    cout<<endl;
+    system ("cls");
+    }
+    while(pilih);
+}
